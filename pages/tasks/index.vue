@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1 class="text-5xl">This is where each DÖK members tasks will appear!</h1>
+        <h1 class="text-center text-4xl">This is where tasks will be listed</h1>
     </div>
 </template>
 

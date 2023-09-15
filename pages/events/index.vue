@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1 class="text-5xl">This is where events, and DÖK gatherings will appear!</h1>
+        <h1 class="text-center text-4xl">This is where events will be listed</h1>
     </div>
 </template>
 
