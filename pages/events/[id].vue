@@ -1,7 +1,7 @@
 <template>
     <div>
         <Head>
-            <Title>DÖK Event | {{ event.title }}</Title>
+            <Title>DÖK Események | {{ event.title }}</Title>
         </Head>
         <EventDetails :event="event" />
     </div>

@@ -1,6 +1,6 @@
 <template>
     <Head>
-        <Title>DÖK Event</Title>
+        <Title>DÖK Események</Title>
     </Head>
     <div>
         <h1 class="text-4xl text-center mb-10 mt-5">Events</h1>

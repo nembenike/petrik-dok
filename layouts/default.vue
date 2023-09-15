@@ -11,7 +11,7 @@
                     <UButton to="/events/" size="xl">Események</UButton>
                 </li>
                 <li class="mr-2">
-                    <UButton to="/tasks/" size="xl">Feladataid</UButton>
+                    <UButton to="/tasks" size="xl">Feladataid</UButton>
                 </li>
                 <li class="mr-2">
                     <UDropdown :items="items" :ui="{ item: { disabled: 'cursor-text select-text' } }"
