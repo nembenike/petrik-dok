@@ -7,6 +7,9 @@
             </ul>
             <ul class="flex flex-direction-row pt-3 pb-3">
                 <li class="mr-2">
+                    <UButton to="/admin/" size="xl">Admin</UButton>
+                </li>
+                <li class="mr-2">
                     <UButton to="/events/" size="xl">Események</UButton>
                 </li>
                 <li class="mr-2">
