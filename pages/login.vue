@@ -2,15 +2,38 @@
     <Head>
         <Title>DÖK Bejelentkezés</Title>
     </Head>
-    <div>
-        <h1 class="text-5xl">This is the login page!</h1>
+    <div class="flex justify-center">
+        <UForm :validate="validate" :state="state" @submit="submit">
+            <UFormGroup name="email">
+                <UInput class="mb-3" placeholder="E-mail" type="email" v-model="state.email" />
+            </UFormGroup>
+            <UFormGroup name="password">
+                <UInput class="mb-3" placeholder="Jelszo" v-model="state.password" type="password" />
+            </UFormGroup>
+            <UButton type="submit">
+                Bejelentkezés
+            </UButton>
+        </UForm>
     </div>
 </template>
 
-<script setup>
-
+<script setup lang="ts">
+import { ref } from 'vue'
+import type { FormError, FormSubmitEvent } from '@nuxt/ui/dist/runtime/types'
+const state = ref({
+    email: undefined,
+    password: undefined
+})
+const validate = (state: any): FormError[] => {
+    const errors = []
+    if (!state.email) errors.push({ path: 'email', message: 'Required' })
+    if (!state.password) errors.push({ path: 'password', message: 'Required' })
+    return errors
+}
+async function submit(event: FormSubmitEvent<any>) {
+    // Do something with data
+    console.log(event.data)
+}
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
