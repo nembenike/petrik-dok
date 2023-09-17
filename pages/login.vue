@@ -36,4 +36,5 @@ async function submit(event: FormSubmitEvent<any>) {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped>
+</style>
