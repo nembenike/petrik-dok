@@ -11,6 +11,10 @@
 </template>
   
 <script setup>
+/*in case we want to force the color scheme
+definePageMeta({
+  colorMode: 'dark',
+}) */
 </script>
   
 <style scoped></style>
