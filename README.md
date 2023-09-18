@@ -13,3 +13,8 @@ npm install
 # run devserver
 npm run dev
 ```
+
+# TODO:
+- color scheme toggle in navbar?
+- integrate with backend
+- auth
