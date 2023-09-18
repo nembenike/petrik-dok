@@ -5,7 +5,7 @@
 </template>
 
 <script setup>
-
+        useHead({  title: 'Beállítások'})
 </script>
 
 <style lang="scss" scoped>
