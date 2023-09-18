@@ -5,12 +5,12 @@
   <div>
     <div class="center-div">
       <UForm :validate="validate" :state="state" @submit="submit">
-        <UFormGroup name="email">
+        <UFormGroup name="username">
           <UInput
             class="mb-3"
-            placeholder="E-mail"
-            type="email"
-            v-model="state.email"
+            placeholder="Username"
+            type="username"
+            v-model="state.username"
           />
         </UFormGroup>
         <UFormGroup name="password">
@@ -31,12 +31,12 @@
 import { ref } from "vue";
 import type { FormError, FormSubmitEvent } from "@nuxt/ui/dist/runtime/types";
 const state = ref({
-  email: undefined,
+  username: undefined,
   password: undefined,
 });
 const validate = (state: any): FormError[] => {
   const errors = [];
-  if (!state.email) errors.push({ path: "email", message: "Required" });
+  if (!state.username) errors.push({ path: "username", message: "Required" });
   if (!state.password) errors.push({ path: "password", message: "Required" });
   return errors;
 };

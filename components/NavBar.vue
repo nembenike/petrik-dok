@@ -40,21 +40,21 @@
 <script setup>
 const items = [
     [{
-        label: 'ben@example.com',
+        label: 'sussy.mihály',
         slot: 'account',
         disabled: true
     }], [{
-        label: 'Settings',
-        icon: 'i-heroicons-cog-8-tooth'
+        label: 'Beállítások',
+        icon: 'i-heroicons-cog-8-tooth',
+        to: '/settings'
     }], [{
-        label: 'Documentation',
-        icon: 'i-heroicons-book-open'
+        label: 'Feladataid',
+        icon: 'i-heroicons-book-open',
+        to: '/tasks/'
     }, {
-        label: 'Changelog',
-        icon: 'i-heroicons-megaphone'
-    }, {
-        label: 'Status',
-        icon: 'i-heroicons-signal'
+        label: 'Események',
+        icon: 'i-heroicons-megaphone',
+        to: '/events/'
     }], [{
         label: 'Sign out',
         icon: 'i-heroicons-arrow-left-on-rectangle'
