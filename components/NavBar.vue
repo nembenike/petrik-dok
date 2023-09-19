@@ -7,6 +7,9 @@
             </ul>
             <ul class="flex flex-direction-row pt-3 pb-3">
                 <li class="mr-2">
+                    <UButton to="/news/" size="xl">Hírek</UButton>
+                </li>
+                <li class="mr-2">
                     <UButton to="/events/" size="xl">Események</UButton>
                 </li>
                 <li class="mr-2">
@@ -19,7 +22,7 @@
                         <template #account="{ item }">
                             <div class="text-left">
                                 <p>
-                                    Signed in as
+                                    Bejelentkezve
                                 </p>
                                 <p class="truncate font-medium text-gray-900 dark:text-white">
                                     {{ item.label }}
@@ -51,12 +54,8 @@ const items = [
         label: 'Feladataid',
         icon: 'i-heroicons-book-open',
         to: '/tasks/'
-    }, {
-        label: 'Események',
-        icon: 'i-heroicons-megaphone',
-        to: '/events/'
-    }], [{
-        label: 'Sign out',
+    },], [{
+        label: 'Kijelentkezés',
         icon: 'i-heroicons-arrow-left-on-rectangle'
     }]
 ]
