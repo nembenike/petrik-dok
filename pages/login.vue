@@ -23,9 +23,9 @@
         </UFormGroup>
         <UButton type="submit"> Bejelentkezés </UButton>
       </UForm>
-      <a class="text-gray-500 hover:text-gray-600" @click="isOpen = true">Regisztráció</a>
+      <a class="text-gray-500 hover:text-gray-600 text-sm" @click="isOpen = true">Regisztráció</a>
       <UModal v-model="isOpen">
-        <h1 class="p-10 text-center">A regisztrácóhoz szólj valakinek. Mindenki manuálisan van hozzáadva az apphoz, a griefing elkerülése érdekében.</h1>
+        <h1 class="p-10 text-center">A regisztrácóhoz szólj valakinek. Mindenki manuálisan van hozzáadva az apphoz, a griefing elkerülése érdekében. Kapni fogsz egy felhasználónevet, és egy random generált jelszót amit majd megváltoztathatsz.</h1>
       </UModal>
     </div>
   </div>
