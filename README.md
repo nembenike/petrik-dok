@@ -18,3 +18,4 @@ npm run dev
 - color scheme toggle in navbar?
 - integrate with backend
 - auth
+- try to get the slightest amount of appreciation for doing shit for petrik
