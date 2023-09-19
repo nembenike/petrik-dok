@@ -8,7 +8,7 @@
         <UFormGroup name="username">
           <UInput
             class="mb-3"
-            placeholder="Username"
+            placeholder="Felhasználónév"
             type="username"
             v-model="state.username"
           />
@@ -16,18 +16,23 @@
         <UFormGroup name="password">
           <UInput
             class="mb-3"
-            placeholder="Jelszo"
+            placeholder="Jelszó"
             v-model="state.password"
             type="password"
           />
         </UFormGroup>
         <UButton type="submit"> Bejelentkezés </UButton>
       </UForm>
+      <a class="text-gray-500 hover:text-gray-600" @click="isOpen = true">Regisztráció</a>
+      <UModal v-model="isOpen">
+        <h1 class="p-10 text-center">A regisztrácóhoz szólj valakinek. Mindenki manuálisan van hozzáadva az apphoz, a griefing elkerülése érdekében.</h1>
+      </UModal>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+const isOpen = ref(false)
 import { ref } from "vue";
 import type { FormError, FormSubmitEvent } from "@nuxt/ui/dist/runtime/types";
 const state = ref({
