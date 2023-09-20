@@ -4,8 +4,13 @@
             Hírek
         </title>
     </Head>
-    <div>
-        <h1 class="text-center text-4xl">News page placeholder</h1>
+    <div class="grid grid-cols-3 gap-3">
+        <newsCard />
+        <newsCard />
+        <newsCard />
+        <newsCard />
+        <newsCard />
+        <newsCard />
     </div>
 </template>
 
