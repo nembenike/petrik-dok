@@ -1,7 +1,13 @@
 <template>
-    <div class="bg-gray-800 rounded-lg h-96">
-        <h1 class="text-center">Balls</h1>
-    </div>
+    <UCard>
+        <template #header>
+            news header
+        </template>
+        <h1>News content</h1>
+        <template #footer>
+            news footer
+        </template>
+    </UCard>
 </template>
 
 <script setup>
