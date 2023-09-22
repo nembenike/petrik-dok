@@ -55,7 +55,7 @@ async function submit(event: FormSubmitEvent<any>) {
   };
 
   try {
-    const response = await fetch("/login", {
+    const response = await fetch("http://localhost/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
