@@ -12,7 +12,7 @@
         <newsCard />
         <newsCard />
     </div>
-    <UPagination class="flex justify-center mt-3" v-model="page" :page-count="5" :total="items.length" />
+    <UPagination class="flex justify-center mt-3" size="xl" v-model="page" :page-count="5" :total="items.length" />
 </template>
 
 <script setup>
