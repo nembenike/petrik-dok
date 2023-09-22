@@ -35,19 +35,43 @@
 const isOpen = ref(false)
 import { ref } from "vue";
 import type { FormError, FormSubmitEvent } from "@nuxt/ui/dist/runtime/types";
+
 const state = ref({
   username: undefined,
   password: undefined,
 });
+
 const validate = (state: any): FormError[] => {
   const errors = [];
   if (!state.username) errors.push({ path: "username", message: "Required" });
   if (!state.password) errors.push({ path: "password", message: "Required" });
   return errors;
 };
+
 async function submit(event: FormSubmitEvent<any>) {
-  // Do something with data
-  console.log(event.data);
+  const postData = {
+    username: state.value.username,
+    password: state.value.password,
+  };
+
+  try {
+    const response = await fetch("/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(postData),
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+      console.log("Login successful:", data);
+    } else {
+      console.error("Login failed:", response.statusText);
+    }
+  } catch (error) {
+    console.error("An error occurred:", error);
+  }
 }
 </script>
 
