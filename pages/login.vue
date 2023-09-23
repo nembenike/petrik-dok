@@ -57,8 +57,10 @@ async function submit(event: FormSubmitEvent<any>) {
   try {
     const response = await fetch("http://localhost:8080/login", {
       method: "POST",
+      credentials: 'include',
       headers: {
         "Content-Type": "application/json",
+        "Credentials": 'include',
       },
       body: JSON.stringify(postData),
     });
