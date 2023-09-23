@@ -43,8 +43,8 @@ const state = ref({
 
 const validate = (state: any): FormError[] => {
   const errors = [];
-  if (!state.username) errors.push({ path: "username", message: "Required" });
-  if (!state.password) errors.push({ path: "password", message: "Required" });
+  if (!state.username) errors.push({ path: "username", message: " " });
+  if (!state.password) errors.push({ path: "password", message: " " });
   return errors;
 };
 
