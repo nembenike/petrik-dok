@@ -21,7 +21,7 @@
             type="password"
           />
         </UFormGroup>
-        <UButton type="submit"> Bejelentkezés </UButton>
+        <UButton type="submit" :disabled="!isLoginFormValid"> Bejelentkezés </UButton>
       </UForm>
       <a class="text-gray-500 hover:text-gray-600 text-sm" @click="isOpen = true">Regisztráció</a>
       <UModal v-model="isOpen">
@@ -73,6 +73,11 @@ async function submit(event: FormSubmitEvent<any>) {
     console.error("An error occurred:", error);
   }
 }
+import { computed } from "vue";
+
+const isLoginFormValid = computed(() => {
+  return !!(state.value.username && state.value.password);
+});
 </script>
 
 <style scoped>
