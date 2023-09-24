@@ -1,94 +1,69 @@
-<template>
-  <Head>
-    <Title>DÖK Bejelentkezés</Title>
-  </Head>
-  <div>
-    <div class="center-div">
-      <UForm :validate="validate" :state="state" @submit="submit">
-        <UFormGroup name="username">
-          <UInput
-            class="mb-3"
-            placeholder="Felhasználónév"
-            type="username"
-            v-model="state.username"
-          />
-        </UFormGroup>
-        <UFormGroup name="password">
-          <UInput
-            class="mb-3"
-            placeholder="Jelszó"
-            v-model="state.password"
-            type="password"
-          />
-        </UFormGroup>
-        <UButton type="submit" :disabled="!isLoginFormValid"> Bejelentkezés </UButton>
-      </UForm>
-      <a class="text-gray-500 hover:text-gray-600 text-sm" @click="isOpen = true">Regisztráció</a>
-      <UModal v-model="isOpen">
-        <h1 class="p-10 text-center">A regisztrácóhoz szólj valakinek. Mindenki manuálisan van hozzáadva az apphoz, a griefing elkerülése érdekében. Kapni fogsz egy felhasználónevet, és egy random generált jelszót amit majd megváltoztathatsz.</h1>
-      </UModal>
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
-const isOpen = ref(false)
-import { ref } from "vue";
-import type { FormError, FormSubmitEvent } from "@nuxt/ui/dist/runtime/types";
-
-const state = ref({
-  username: undefined,
-  password: undefined,
-});
-
-const validate = (state: any): FormError[] => {
-  const errors = [];
-  if (!state.username) errors.push({ path: "username", message: " " });
-  if (!state.password) errors.push({ path: "password", message: " " });
-  return errors;
-};
-
-async function submit(event: FormSubmitEvent<any>) {
-  const postData = {
-    username: state.value.username,
-    password: state.value.password,
-  };
-
-  try {
-    const response = await fetch("http://localhost:8080/login", {
-      method: "POST",
-      credentials: 'include',
-      headers: {
-        "Content-Type": "application/json",
-        "Credentials": 'include',
-      },
-      body: JSON.stringify(postData),
-    });
-
-    if (response.ok) {
-      const data = await response.json();
-      console.log("Login successful:", data);
-    } else {
-      console.error("Login failed:", response.statusText);
-    }
-  } catch (error) {
-    console.error("An error occurred:", error);
-  }
+const email = ref('')
+const password = ref('')
+const isSignUp = ref(false)
+const client = useSupabaseClient()
+const signUp = async () => {
+ await client.auth.signUp({
+    email: email.value,
+    password: password.value
+  })
 }
-import { computed } from "vue";
 
-const isLoginFormValid = computed(() => {
-  return !!(state.value.username && state.value.password);
-});
+const login = async () => {
+  const { data, error } = await client.auth.signInWithPassword(
+    {
+      email: email.value,
+      password: password.value,
+    }
+  )
+      
+  console.log(user, error)
+}
+
+const user = useSupabaseUser()
+onMounted(() => {
+  watchEffect(() => {
+    if (user.value) {
+      navigateTo('/')
+    }
+  })
+})
 </script>
 
-<style scoped>
-.center-div {
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%, -80%); /* Not fully center since i think it's a bit weird. */
-  transform: translate(-50%, -80%); /* Not fully center since i think it's a bit weird. */
-}
-</style>
+<template>
+  <div class="max-w-lg mx-auto mt-8">
+    <h1 class="text-3xl font-black text-white">LearnVue Nuxt Demo</h1>
+    <form
+      @submit.prevent="() => (isSignUp ? signUp() : login())"
+      class="flex flex-col gap-2 mt-4"
+    >
+      <input
+        type="email"
+        placeholder="Email"
+        v-model="email"
+        class="p-2 text-white rounded bg-charcoal-600"
+      />
+      <input
+        type="password"
+        placeholder="Password"
+        v-model="password"
+        class="p-2 text-white rounded bg-charcoal-600"
+      />
+      <button
+        type="submit"
+        class="p-2 font-medium text-white bg-green-500 rounded hover:bg-green-400"
+      >
+        <span v-if="isSignUp"> Sign up </span>
+        <span v-else> Log in </span>
+      </button>
+    </form>
+    <button
+      @click="isSignUp = !isSignUp"
+      class="w-full mt-8 text-sm text-center underline text-slate-300"
+    >
+      <span v-if="isSignUp"> Have an account? Log in instead </span>
+      <span v-else> Create a new account </span>
+    </button>
+  </div>
+</template>
