@@ -43,7 +43,7 @@
 <script setup>
 const items = [
     [{
-        label: 'sussy.mihály',
+        label: "Sussy Mihály",
         slot: 'account',
         disabled: true
     }], [{
