@@ -12,7 +12,9 @@
     const uri = `https://fakestoreapi.com/products/` + id
 
     const { data: event } = await useFetch(uri, { key: id })
-
+    definePageMeta({
+        middleware: ["auth"],
+    });
 </script>
 
 <style lang="scss" scoped>

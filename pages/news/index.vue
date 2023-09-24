@@ -18,6 +18,9 @@
 <script setup>
 const page = ref(1)
 const items = ref(Array(55))
+    definePageMeta({
+        middleware: ["auth"],
+    });
 </script>
 
 <style lang="scss" scoped>

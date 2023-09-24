@@ -6,6 +6,9 @@
 
 <script setup>
         useHead({  title: 'Beállítások'})
+        definePageMeta({
+            middleware: ["auth"],
+        });
 </script>
 
 <style lang="scss" scoped>

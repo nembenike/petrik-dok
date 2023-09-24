@@ -14,6 +14,9 @@
 
 <script setup>
     const { data: events } = await useFetch('https://fakestoreapi.com/products')
+    definePageMeta({
+        middleware: ["auth"],
+    });
 </script>
 
 <style lang="scss" scoped>
