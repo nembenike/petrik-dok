@@ -12,6 +12,9 @@
 definePageMeta({
   colorMode: 'dark',
 }) */
+definePageMeta({
+    middleware: "auth"
+})
 </script>
   
 <style scoped></style>
